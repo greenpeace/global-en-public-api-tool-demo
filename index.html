@@ -29,7 +29,7 @@ function getParameterByName(name) {
 		results = regex.exec(location.search);
 	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
-var en_token='YOUR_PUBLIC_TOKEN';
+var en_token='YOUR-TOKEN-HERE';
 var url='http://e-activist.com/ea-dataservice/data.service?service=';
 var service=['ActiveJobs','DataCaptureParticipations','IssueResponse','EaEmailAOTarget','EaEmailAOTargetContact','EaEmailNonAOTarget','EaEmailNonAOTargetContact','EaDataCapture','EaSupporterQuestionResponse','EaContactQuestionResponse','NetDonor','IssueSupport','ContactsByParty','AccountReports','GetCampaignWidget','EaAOContactData','EaAOContactDataByPostcode','EaSupporterCount','EaCampaignInfo','EaBroadcastInfo','EaReferenceData','EaPoliticianResponse','FundraisingSummary','RollCall','FundraisingRollCall','P2PTeamSearch','SupporterData'];
 var ActiveJobs={'require':'','option':'','desc':'List of background job'};
@@ -234,78 +234,93 @@ td{padding:5px;}
 <body>
 
 <div class="container">
-<div class="row"><div class="col-md-12">&nbsp;</div></div>
-<div class="row"><div class="col-md-1"></div><div class="col-md-10">Token <input type="text" id="token" size="50"></div><div class="col-md-1"></div></div>
-<div class="row">
+	<div class="row">
+		<div class="col-md-12">&nbsp;</div>
+	</div>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">Token <input type="text" id="token" size="50"></div>
+		<div class="col-md-1"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<form class='mainform'   onsubmit="return false;"> 
+			<div class="row">
+				<div class="col-md-12">
+					<strong>Select service</strong>
+				</div>
+			</div>
 
-<div class="col-md-1"></div>
-<div class="col-md-10">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="service"></div>
+				</div>
+				<div class="col-md-8">
+					<div class="desc"></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<strong>Required </strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<div class="required"></div>
+				</div>
+				<div class="col-md-8">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<strong>Option </strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="option"></div>
+				</div>
+				<div class="col-md-6">
+				</div>
+			</div>
+
+			<div class="row">
+				
+				<div class="col-md-12">
+					<input type='button' id='acquire' value='proceed'>
+				</div>
+				
+			</div>
+			</form>
+
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div class="call_url"></div>
+				<div>
+				
+			</div>
+		
+
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div class="result"></div>
+				</div>
+				
+			</div>
+		</div>
 
 
-<form class='mainform'   onsubmit="return false;">
-<div class="row">
-<div class="col-md-12">
-<strong>Select service</strong>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-4">
-<div class="service"></div>
-</div>
-<div class="col-md-8">
-<div class="desc"></div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-12">
-<strong>Required </strong>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-4">
-<div class="required"></div>
-</div>
-<div class="col-md-8">
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-12">
-<strong>Option </strong>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-6">
-<div class="option"></div>
-</div>
-<div class="col-md-6">
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-12">
-<input type='button' id='acquire' value='proceed'>
-</div>
-</div>
-
-</form>
+		<div class="col-md-1"></div>
+	</div>
 
 </div>
-<div class="col-md-1"></div>
 </div>
-<div class="row">
-<div class="col-md-12">
-<div class="call_url"></div>
-</div>
-</div>
-
-
-<div class="result"></div>
-
-
-
+Made for Greenpeace 2016
 </body></html>
