@@ -63,9 +63,9 @@ var SupporterData={'require':'email','option':'','desc':'This service returns de
 var non='';
 var call_url='';
 var selected_service='';
-	var row_size='';
-	var col_size='';
-	var op;
+var row_size='';
+var col_size='';
+var op;
 var json_obj;
 
 
@@ -123,8 +123,6 @@ function required(service){
 	
 	}
 function render(){
-	console.log('row '+row_size);
-	console.log('col '+col_size);
 	for (i=0;i<row_size;i++){
 		op+='<tr>';
 		for (j=0;j<col_size;j++){
@@ -144,6 +142,9 @@ function do_ajax(call_url) {
 			console.log(json_obj);
 			if (json_obj.hasOwnProperty('error')){
 				$('.result').html('<h1 style="color:#f00">ERROR : '+json_obj.error+'</h1>');
+				}
+			else if (Object.keys(json_obj.rows).length===0){
+				$('.result').html('<h1 style="color:#f00">Service return 0 result</h1>');
 				}
 			else {
 			row_size=Object.keys(json_obj.rows).length;
@@ -241,7 +242,7 @@ td{padding:5px;}
 <div class="col-md-10">
 
 
-<form class='mainform'>
+<form class='mainform'   onsubmit="return false;">
 <div class="row">
 <div class="col-md-12">
 <strong>Select service</strong>
