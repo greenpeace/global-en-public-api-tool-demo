@@ -7,6 +7,7 @@ What was done
 * Display info on zero row return but no error.
 * Re-arrange html block
 * Add input box for token and use it if present
+* fix error on different of numbers of return columns. eg:deleted campaign in eadatacapture
 
 Todo
 
