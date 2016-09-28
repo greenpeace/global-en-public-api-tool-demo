@@ -122,11 +122,19 @@ function required(service){
 	$('.option').html(opt);	
 	
 	}
+
 function render(){
-	for (i=0;i<row_size;i++){
+	console.log('row :'+row_size+' col :'+col_size);
+	for (x=0;x<row_size;x++){
 		op+='<tr>';
-		for (j=0;j<col_size;j++){
-			op+='<td>'+json_obj.rows[i].columns[j].value+'</td>';
+		for (y=0;y<col_size;y++){
+			if (typeof json_obj.rows[x].columns[y] != "undefined"){
+				op+='<td>'+json_obj.rows[x].columns[y].value+'</td>';
+				}
+			else {
+				op+='<td></td>';
+				}
+			//console.log(x+' '+y);
 			}
 		op+='</tr>';
 		}	
@@ -149,14 +157,13 @@ function do_ajax(call_url) {
 			else {
 			row_size=Object.keys(json_obj.rows).length;
 			col_size=Object.keys(json_obj.rows[0].columns).length;
-			console.log('row :'+row_size+' col :'+col_size);
 			op='<table border="1"><tr>';
 			for (i=0;i<col_size;i++){
 				op+='<td>'+json_obj.rows[0].columns[i].name+'</td>';
 				}
 			op+='</tr>';
 			//To customise with different type of display eg: have summary numbers and percentage calculation on each matrix of EaBroadcastInfo etc
-			if (selected_service==='ActiveJobs'){render();}
+/*			if (selected_service==='ActiveJobs'){render();}
 			else if (selected_service==='DataCaptureParticipations'){render();}
 			else if (selected_service==='IssueResponse'){render();		}
 			else if (selected_service==='EaEmailAOTarget'){render();}
@@ -183,6 +190,8 @@ function do_ajax(call_url) {
 			else if (selected_service==='FundraisingRollCall'){render();}
 			else if (selected_service==='P2PTeamSearch'){render();}
 			else if (selected_service==='SupporterData'){render();}
+*/
+			render();
 			op+='</tr></table>';
 			$('.result').html(op);
 			console.log('done');
@@ -315,12 +324,12 @@ td{padding:5px;}
 				
 			</div>
 		</div>
-
-
 		<div class="col-md-1"></div>
 	</div>
 
 </div>
 </div>
+
+<div class="debug"></div>
 Made for Greenpeace 2016
 </body></html>
