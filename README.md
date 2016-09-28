@@ -1,6 +1,13 @@
 # Engaging-networks-public-API-tool-demo
 Sample Engagingnetworks public API
 
+What was done
+* Prevent form submit
+* Display error message
+* Display info on zero row return but no error.
+* Re-arrange html block
+* Add input box for token and use it if present
+
 Todo
 
 * ~~Prevent form submit~~
